@@ -1,0 +1,168 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    box-sizing: border-box;
+    margin:0;
+    background: #ff9966;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #ff5e62, #ff9966);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #ff5e62, #ff9966); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-family: 'IBM Plex Serif', serif;
+}
+
+.contenedor {
+    background-color: white;
+    min-height: calc( 100vh - 20px );
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 30px 0 30px;
+}
+
+nav {
+    background-color: #3F51B5;
+}
+nav ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+nav ul li {
+    padding: 20px;
+}
+nav ul li:hover {
+    background-color: #1a2770;
+}
+nav ul a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.4rem;
+}
+
+/* Sencillo*/
+
+.sencillo ul {
+    display: flex;/*HAce que los elementos queden horizontales en una sola linea de preferencia*/
+    /* justify-content: flex-end;  /* Deja los elementos alineados a la derecha*/ 
+    justify-content: space-between;/* Deja con un espaciado similar entre los elemtos y a klos extremos*/
+    flex-direction: column;/* Alinea los elementos en forma vertical */
+
+}
+.sencillo ul li{
+    text-align: center;
+    margin-bottom: .5rem;
+}
+
+@media screen and (min-width:768px){
+    .sencillo ul{
+        flex-direction: row ; /*cuando achiquemos la págiona a partir de 768 quedaran en columnas verticcales */
+    }
+    .sencillo ul li{
+        margin-bottom: 0rem;
+    }
+}
+
+/* iconos */
+.iconos ul li a {
+    display: flex;
+    justify-content: center;
+}
+.iconos .icono{
+    display: 0 1 2rem;
+    
+}
+
+.iconos .texto span {
+    font-size: .8rem;
+    display: block;/* Para que se coloque debajo de un elemento */
+    margin-top: .5rem;/* Damos separacion en el top */
+}
+@media screen and (min-width: 480px){
+    .iconos ul {
+        display: flex;
+        flex-wrap: wrap;/* distribuye los elemnetos dentro de un determinado espacion que caigan todos en el formato */
+    }
+    
+    .iconos ul li{
+       flex: 0 1 50%; /* esto es para que en el tamaño 480  queden los elementos  preados dentro del rectangulo */
+}
+}
+@media screen and (min-width: 768px){
+    .iconos ul li{
+        flex: 1px;/* distribuye los elementos en el ancho de la pagina */
+    }
+}
+
+/* Dropdown */
+.dropdown ul {
+    display: flex;/* alinea los elementos  en forma horizontal*/
+    flex-direction: column; /* Aca los elementos se transforman en columnas*/
+}
+/* en este nmedia query indica que  hasta el formato 768 px  estara en posicion row
+*/
+@media screen and (min-width: 768px){
+    .dropdown ul {
+        flex-direction: row;
+    }
+}
+/* Aca en este css ordenamos los menus para que queden
+en formato vertical con los sub menus alineados */
+.dropdown ul li{
+    display: flex;    
+    flex-direction: column;
+}
+
+@media screen and (min-width: 768px){
+    .dropdown ul li {
+        position: relative;
+        display: flex;
+        flex: 1 1 100%;
+    }
+    .dropdown ul li ul {
+        display: none;
+        position: absolute;/* se enciman en el top queda  muy apretado */
+        top: 100%; /* Garantiza que los elementos no se junten y queden oordenados en las columnas*/;
+        left: 0;
+        background-color: #ff5e62;
+    }
+    .dropdown ul li:hover ul{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+} 
+
+/* Sociales*/
+.sociales ul li span {
+    display: none;
+}
+.sociales ul {
+    display: flex;
+    justify-content:flex-end;/* Mueve los elementos hacia el extremo contrario*/
+}
+.sociales ul li a:before{
+    font-family: "Font Awesome 5 Brands" ;
+}
+.sociales ul li a[href*='facebook.com']::before {
+    content: "\f39e";
+}
+.sociales ul li a[href*='twitter.com']::before {
+    content: "\f099";
+}
+.sociales ul li a[href*='youtube.com']::before {
+    content: "\f167";
+}
+.sociales ul li a[href*='instagram.com']::before {
+    content: "\f16d";
+}
+.sociales ul li a[href*='pinterest.com']::before {
+    content: "\f0d2";
+}
+
+/* Combinado social y dropdown*/ 
+.navegacion-social-dropdown {
+    display: flex; /*Siempre el felx alinea los elementos dentro de la clase*/
+    justify-content: space-between; /* distribuye los elementos uno a la iz y otro a la derecha */
+    background-color: #3F51B5;
+}
